@@ -1,10 +1,313 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Joshua Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Joshua | Personal Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00aaff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00aaff;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 110px 8% 70px;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #050505, #101820);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #00aaff;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #00aaff;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: #00aaff;
+            transform: translateY(-3px);
+        }
+
+        .about {
+            background: #111;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 25px;
+            color: #00aaff;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+
+        .card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #292929;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #00aaff;
+        }
+
+        .card h3 {
+            color: #00aaff;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #bbb;
+        }
+
+        .contact {
+            text-align: center;
+            background: #050505;
+        }
+
+        .contact p {
+            color: #ccc;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #000;
+            color: #777;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>JOSHUA WEBSITE IS LIVE!</h1>
-    <p>If you can see this, Render is working correctly.</p>
+
+<header>
+    <div class="logo">JOSHUA</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Hello, I'm <span>Joshua</span></h1>
+
+        <p>
+            Welcome to my personal website. 
+            This is my space to share who I am, what I do and what I'm passionate about.
+        </p>
+
+        <a href="#about" class="btn">About Me</a>
+        <a href="#contact" class="btn">Contact Me</a>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <p>
+        Welcome to my website. I'm Joshua, and I'm always looking for
+        opportunities to learn new things, improve my skills and build
+        something meaningful.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>My Goals</h3>
+            <p>
+                To keep learning, growing and turning my ideas into reality.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>My Interests</h3>
+            <p>
+                Technology, business, creativity, sports and learning new skills.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>My Vision</h3>
+            <p>
+                To build a successful future and make a positive difference.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Technology</h3>
+            <p>
+                Learning website development, computers and modern technology.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Business</h3>
+            <p>
+                Interested in business ideas, entrepreneurship and building brands.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Creativity</h3>
+            <p>
+                Creating ideas, designs and projects that stand out.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Teamwork</h3>
+            <p>
+                Working with others, communicating and learning from people.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="section-title">Contact Me</h2>
+
+    <p>
+        Thanks for visiting my website!
+    </p>
+
+    <a href="mailto:your@email.com" class="btn">Email Me</a>
+</section>
+
+<footer>
+    <p>© 2026 Joshua. All Rights Reserved.</p>
+</footer>
+
 </body>
 </html>
