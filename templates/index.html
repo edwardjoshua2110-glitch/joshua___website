@@ -4,74 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Joshua | Personal Website</title>
+    <title>Joshua Tangeni Edward | Official Website</title>
+
+    <meta name="description" content="Official personal website of Joshua Tangeni Edward.">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #0b0b0b;
-            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #05070b;
+            color: #ffffff;
             line-height: 1.6;
         }
+
+        /* NAVIGATION */
 
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 18px 8%;
+            padding: 20px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(5, 7, 11, 0.88);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
             z-index: 1000;
-            border-bottom: 1px solid #222;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 23px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
             color: #00aaff;
         }
 
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
         nav a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            margin-left: 25px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
         nav a:hover {
             color: #00aaff;
         }
 
-        section {
-            min-height: 100vh;
-            padding: 110px 8% 70px;
-        }
+        /* HERO */
 
         .hero {
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, #050505, #101820);
+            padding: 120px 7% 80px;
+
+            background:
+                radial-gradient(circle at top right, rgba(0,170,255,0.18), transparent 35%),
+                radial-gradient(circle at bottom left, rgba(0,110,255,0.12), transparent 30%),
+                #05070b;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
+        }
+
+        .small-title {
+            color: #00aaff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 60px;
-            margin-bottom: 15px;
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 1;
+            margin-bottom: 25px;
+            font-weight: 900;
         }
 
         .hero h1 span {
@@ -79,119 +111,270 @@
         }
 
         .hero p {
-            font-size: 20px;
-            color: #ccc;
-            margin-bottom: 30px;
+            max-width: 650px;
+            margin: auto;
+            color: #aeb7c4;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
-            background: #00aaff;
-            color: white;
-            padding: 13px 28px;
-            border-radius: 30px;
+            padding: 14px 28px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            margin: 5px;
+            font-weight: 700;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: white;
-            color: #00aaff;
-            transform: translateY(-3px);
+        .primary {
+            background: #00aaff;
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,170,255,0.2);
         }
 
-        .about {
-            background: #111;
-            text-align: center;
+        .primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,170,255,0.35);
+        }
+
+        .secondary {
+            border: 1px solid #333b47;
+            color: white;
+        }
+
+        .secondary:hover {
+            border-color: #00aaff;
+            color: #00aaff;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-label {
+            color: #00aaff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 40px;
-            margin-bottom: 25px;
-            color: #00aaff;
+            font-size: clamp(32px, 5vw, 52px);
+            margin-bottom: 20px;
         }
 
-        .about p {
-            max-width: 750px;
-            margin: auto;
-            color: #ccc;
-            font-size: 18px;
+        .section-text {
+            max-width: 700px;
+            color: #9ca7b5;
+            font-size: 17px;
         }
+
+        /* ABOUT */
+
+        .about {
+            background: #080b11;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* CARDS */
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            max-width: 1000px;
-            margin: 40px auto 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 45px;
         }
 
         .card {
-            background: #1a1a1a;
             padding: 30px;
+            background: #0d1118;
+            border: 1px solid #1c2530;
             border-radius: 15px;
-            border: 1px solid #292929;
-            transition: 0.3s;
+            transition: 0.35s;
         }
 
         .card:hover {
             transform: translateY(-8px);
             border-color: #00aaff;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-number {
+            color: #00aaff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .card h3 {
-            color: #00aaff;
-            margin-bottom: 10px;
+            font-size: 21px;
+            margin-bottom: 12px;
         }
 
         .card p {
-            color: #bbb;
+            color: #8f9aaa;
+            font-size: 15px;
         }
+
+        /* SKILLS */
+
+        .skills {
+            background: #05070b;
+        }
+
+        .skills-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .skill {
+            padding: 20px;
+            background: #0d1118;
+            border: 1px solid #1c2530;
+            border-radius: 10px;
+        }
+
+        .skill strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .skill span {
+            color: #8f9aaa;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
 
         .contact {
             text-align: center;
-            background: #050505;
+            background:
+                radial-gradient(circle, rgba(0,170,255,0.12), transparent 45%),
+                #080b11;
         }
 
-        .contact p {
-            color: #ccc;
-            font-size: 18px;
-            margin-bottom: 25px;
+        .contact-content {
+            max-width: 700px;
+            margin: auto;
         }
+
+        .contact .section-text {
+            margin: auto auto 30px;
+        }
+
+        /* SOCIALS */
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social {
+            padding: 11px 18px;
+            border: 1px solid #28313c;
+            border-radius: 7px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            border-color: #00aaff;
+            color: #00aaff;
+        }
+
+        /* FOOTER */
 
         footer {
+            padding: 25px 7%;
             text-align: center;
-            padding: 25px;
-            background: #000;
-            color: #777;
+            border-top: 1px solid #151b23;
+            color: #66717f;
+            font-size: 13px;
+            background: #05070b;
         }
 
-        @media (max-width: 700px) {
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
             header {
-                padding: 15px 5%;
+                padding: 18px 5%;
             }
 
-            .logo {
-                font-size: 20px;
+            nav {
+                gap: 12px;
             }
 
             nav a {
-                margin-left: 10px;
-                font-size: 13px;
+                font-size: 12px;
             }
 
-            .hero h1 {
-                font-size: 42px;
+            section {
+                padding: 85px 6%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-left: 6%;
+                padding-right: 6%;
             }
 
             .hero p {
-                font-size: 17px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .logo {
+                font-size: 18px;
             }
 
-            .section-title {
-                font-size: 32px;
+            nav {
+                gap: 8px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
             }
         }
     </style>
@@ -199,8 +382,12 @@
 
 <body>
 
+<!-- NAVIGATION -->
+
 <header>
-    <div class="logo">JOSHUA</div>
+    <div class="logo">
+        JOSHUA<span>.</span>
+    </div>
 
     <nav>
         <a href="#home">Home</a>
@@ -210,103 +397,226 @@
     </nav>
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero" id="home">
+
     <div class="hero-content">
-        <h1>Hello, I'm <span>Joshua</span></h1>
+
+        <div class="small-title">
+            Welcome to my official website
+        </div>
+
+        <h1>
+            Joshua <span>Tangeni</span> Edward
+        </h1>
 
         <p>
-            Welcome to my personal website. 
-            This is my space to share who I am, what I do and what I'm passionate about.
+            I'm focused on learning, building, creating and turning ideas
+            into something meaningful.
         </p>
 
-        <a href="#about" class="btn">About Me</a>
-        <a href="#contact" class="btn">Contact Me</a>
+        <div class="buttons">
+
+            <a href="#about" class="btn primary">
+                Explore My Story
+            </a>
+
+            <a href="#contact" class="btn secondary">
+                Get In Touch
+            </a>
+
+        </div>
+
     </div>
+
 </section>
+
+
+<!-- ABOUT -->
 
 <section class="about" id="about">
-    <h2 class="section-title">About Me</h2>
 
-    <p>
-        Welcome to my website. I'm Joshua, and I'm always looking for
-        opportunities to learn new things, improve my skills and build
-        something meaningful.
-    </p>
+    <div class="about-container">
 
-    <div class="cards">
-
-        <div class="card">
-            <h3>My Goals</h3>
-            <p>
-                To keep learning, growing and turning my ideas into reality.
-            </p>
+        <div class="section-label">
+            About Me
         </div>
 
-        <div class="card">
-            <h3>My Interests</h3>
-            <p>
-                Technology, business, creativity, sports and learning new skills.
-            </p>
-        </div>
+        <h2 class="section-title">
+            More Than Just A Name.
+        </h2>
 
-        <div class="card">
-            <h3>My Vision</h3>
-            <p>
-                To build a successful future and make a positive difference.
-            </p>
+        <p class="section-text">
+            Welcome to my personal website. I'm Joshua Tangeni Edward.
+            I'm interested in technology, business, creativity and
+            developing new skills. I'm constantly learning and looking
+            for new ways to grow.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    My Goals
+                </h3>
+
+                <p>
+                    To keep improving myself, learn valuable skills and
+                    turn my ideas into real projects.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    My Interests
+                </h3>
+
+                <p>
+                    Technology, business, creativity, sports and discovering
+                    new opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    My Vision
+                </h3>
+
+                <p>
+                    Build a successful future, create meaningful projects
+                    and make a positive impact.
+                </p>
+
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
-<section id="skills">
-    <h2 class="section-title">My Skills</h2>
 
-    <div class="cards">
+<!-- SKILLS -->
 
-        <div class="card">
-            <h3>Technology</h3>
-            <p>
-                Learning website development, computers and modern technology.
-            </p>
+<section class="skills" id="skills">
+
+    <div class="skills-container">
+
+        <div class="section-label">
+            What I Do
         </div>
 
-        <div class="card">
-            <h3>Business</h3>
-            <p>
-                Interested in business ideas, entrepreneurship and building brands.
-            </p>
-        </div>
+        <h2 class="section-title">
+            Skills & Interests
+        </h2>
 
-        <div class="card">
-            <h3>Creativity</h3>
-            <p>
-                Creating ideas, designs and projects that stand out.
-            </p>
-        </div>
+        <p class="section-text">
+            I'm developing skills across different areas while gaining
+            experience through projects and everyday learning.
+        </p>
 
-        <div class="card">
-            <h3>Teamwork</h3>
-            <p>
-                Working with others, communicating and learning from people.
-            </p>
+
+        <div class="skill-list">
+
+            <div class="skill">
+                <strong>Technology</strong>
+                <span>Websites, computers and modern technology.</span>
+            </div>
+
+            <div class="skill">
+                <strong>Business</strong>
+                <span>Entrepreneurship, ideas and building brands.</span>
+            </div>
+
+            <div class="skill">
+                <strong>Creativity</strong>
+                <span>Design, ideas and creating new projects.</span>
+            </div>
+
+            <div class="skill">
+                <strong>Teamwork</strong>
+                <span>Communication, collaboration and leadership.</span>
+            </div>
+
         </div>
 
     </div>
+
 </section>
+
+
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
-    <h2 class="section-title">Contact Me</h2>
 
-    <p>
-        Thanks for visiting my website!
-    </p>
+    <div class="contact-content">
 
-    <a href="mailto:your@email.com" class="btn">Email Me</a>
+        <div class="section-label">
+            Contact
+        </div>
+
+        <h2 class="section-title">
+            Let's Connect.
+        </h2>
+
+        <p class="section-text">
+            Thanks for visiting my website. You can connect with me
+            through my social media platforms.
+        </p>
+
+
+        <div class="socials">
+
+            <a
+                class="social"
+                href="https://www.instagram.com/dxmn.jjosh/"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+            <a
+                class="social"
+                href="https://www.tiktok.com/@0ctobersveryown21"
+                target="_blank"
+            >
+                TikTok
+            </a>
+
+        </div>
+
+    </div>
+
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
-    <p>© 2026 Joshua. All Rights Reserved.</p>
+
+    © 2026 Joshua Tangeni Edward. All Rights Reserved.
+
 </footer>
 
 </body>
